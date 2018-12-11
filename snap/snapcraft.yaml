@@ -1,0 +1,26 @@
+name: coursera-dl
+base: core18
+version: 'git'
+summary: Tool for downloading Coursera.org videos and naming them.
+description: |
+  coursera-dl makes it easier to batch download lecture resources (e.g.,
+  videos, ppt, etc) for Coursera classes. Given one or more class names
+  and account credentials, it obtains week and class names from the
+  lectures page, and then downloads the related materials into
+  appropriately named files and directories.
+
+grade: stable
+confinement: strict
+
+parts:
+  coursera-dl:
+    plugin: python
+    source: .
+
+apps:
+  coursera-dl:
+    command: bin/coursera-dl
+    plugs:
+      - home
+      - network
+      - removable-media
